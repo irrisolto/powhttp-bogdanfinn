@@ -1,0 +1,6 @@
+{
+  "name": "Copy as bogdanfinn",
+  "version": "0.1.0",
+  "description": "Copy a captured request as a bogdanfinn/tls-client Go snippet (http.Header + HeaderOrderKey), with or without cookies.",
+  "command": "target/release/powhttp-bogdanfinn.exe"
+}
