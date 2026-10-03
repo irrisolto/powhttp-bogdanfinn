@@ -56,6 +56,15 @@ if err != nil {
 	log.Println(err)
 	return
 }
+defer resp.Body.Close()
+
+log.Println(fmt.Sprintf("status code: %d", resp.StatusCode))
+
+readBytes, err := io.ReadAll(resp.Body)
+if err != nil {
+	log.Println(err)
+	return
+}
 ```
 
 ## Building

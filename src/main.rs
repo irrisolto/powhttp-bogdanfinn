@@ -160,6 +160,12 @@ fn build_go(entry: &SessionEntry, body: Option<&str>, include_cookies: bool) -> 
 
     out.push_str("resp, err := client.Do(req)\n");
     out.push_str("if err != nil {\n\tlog.Println(err)\n\treturn\n}\n");
+    out.push_str("defer resp.Body.Close()\n\n");
+
+    out.push_str("log.Println(fmt.Sprintf(\"status code: %d\", resp.StatusCode))\n\n");
+
+    out.push_str("readBytes, err := io.ReadAll(resp.Body)\n");
+    out.push_str("if err != nil {\n\tlog.Println(err)\n\treturn\n}\n");
 
     out
 }
